@@ -30,7 +30,7 @@ public class Reflection {
     private Integer mood;
 
     @ElementCollection
-    private List<String> factors;
+    private List<String> tags;
 
     @Size(max = 250)
     private String note;

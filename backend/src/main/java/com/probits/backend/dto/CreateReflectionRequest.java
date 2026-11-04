@@ -22,9 +22,8 @@ public class CreateReflectionRequest {
     @Max(5)
     private Integer mood;
 
-    private List<String> factors;
+    private List<String> tags;
 
     @Size(max = 250)
     private String note;
-
 }

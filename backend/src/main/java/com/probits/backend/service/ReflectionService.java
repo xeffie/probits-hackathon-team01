@@ -23,7 +23,7 @@ public class ReflectionService {
 
         reflection.setActivityId(request.getActivityId());
         reflection.setMood(request.getMood());
-        reflection.setFactors(request.getFactors());
+        reflection.setTags(request.getTags());
         reflection.setNote(request.getNote());
 
         return reflectionRepository.save(reflection);
