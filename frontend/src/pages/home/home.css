@@ -1,0 +1,56 @@
+.home {
+  margin: 1rem;
+}
+
+.home__logo {
+  width: 4rem;
+  margin-top: 1rem;
+}
+
+.home__title {
+  margin: 1rem 0rem 0.5rem 0rem;
+}
+
+.home__date-section {
+  display: flex;
+  gap: 1rem;
+}
+
+.home__container {
+  background-color: var(--color-surface);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.home__description {
+  margin: 0.5rem 0rem 01rem 0rem;
+}
+
+.home__button-checkin {
+  text-decoration: none;
+  border: none;
+  background-color: var(--brand-purple-dark);
+  color: white;
+  padding: 0.7rem 1.7rem;
+  border-radius: 2rem;
+}
+
+.weekdays {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.weekday {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--mood-4);
+}
+
+.day {
+  text-align: center;
+}
