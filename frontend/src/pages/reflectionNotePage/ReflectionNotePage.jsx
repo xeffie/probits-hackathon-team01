@@ -1,7 +1,13 @@
 import { useState } from 'react';
 import './reflectionNotePage.css';
 
-function ReflectionNotePage({ mood = null, tags = [], activity = null }) {
+function ReflectionNotePage({
+	mood = null,
+	tags = [],
+	activity = null,
+	currentStep = 3,
+	totalSteps = 4,
+}) {
 	const [note, setNote] = useState('');
 	return (
 		<main className='reflection-note'>
@@ -10,6 +16,26 @@ function ReflectionNotePage({ mood = null, tags = [], activity = null }) {
 					{activity.name} · {activity.duration} min · {activity.timeLabel}
 				</p>
 			)}
+
+			<div
+				className='reflection-note__progress'
+				role='progressbar'
+				aria-label='Reflektionsflöde'
+				aria-valuemin={0}
+				aria-valuemax={totalSteps}
+				aria-valuenow={currentStep}
+				aria-valuetext={`Steg ${currentStep} av ${totalSteps}`}>
+				{Array.from({ length: totalSteps }, (_, index) => (
+					<span
+						key={index}
+						className={
+							index < currentStep
+								? 'reflection-note__step reflection-note__step--active'
+								: 'reflection-note__step'
+						}
+					/>
+				))}
+			</div>
 
 			<h1 className='reflection-note__title'>Vill du lägga till något?</h1>
 
