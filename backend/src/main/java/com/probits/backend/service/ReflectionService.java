@@ -1,0 +1,32 @@
+package com.probits.backend.service;
+
+import com.probits.backend.dto.CreateReflectionRequest;
+import com.probits.backend.model.Reflection;
+import com.probits.backend.repository.ReflectionRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+@RequiredArgsConstructor
+public class ReflectionService {
+
+    private final ReflectionRepository reflectionRepository;
+
+    public List<Reflection> getAllReflections() {
+        return reflectionRepository.findAll();
+    }
+
+    public Reflection createReflection(CreateReflectionRequest request) {
+        Reflection reflection = new Reflection();
+
+        reflection.setActivityId(request.getActivityId());
+        reflection.setMood(request.getMood());
+        reflection.setFactors(request.getFactors());
+        reflection.setNote(request.getNote());
+
+        return reflectionRepository.save(reflection);
+
+    }
+}
