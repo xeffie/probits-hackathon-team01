@@ -1,0 +1,32 @@
+package com.probits.backend.controller;
+
+import com.probits.backend.dto.CreateReflectionRequest;
+import com.probits.backend.model.Reflection;
+import com.probits.backend.service.ReflectionService;
+import jakarta.validation.Valid;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/reflections")
+@CrossOrigin(origins = "http://localhost:5173")
+@RequiredArgsConstructor
+public class ReflectionController {
+
+    private final ReflectionService reflectionService;
+
+    @GetMapping
+    public List<Reflection> getAllReflections() {
+        return reflectionService.getAllReflections();
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public Reflection createReflection(@Valid @RequestBody CreateReflectionRequest request) {
+        return reflectionService.createReflection(request);
+
+    }
+}
