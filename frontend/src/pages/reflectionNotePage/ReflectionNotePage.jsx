@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './reflectionNotePage.css';
 
-function ReflectionNotePage() {
+function ReflectionNotePage({ mood = null, tags = [] }) {
 	const [note, setNote] = useState('');
 	return (
 		<main className='reflection-note'>
@@ -13,6 +13,21 @@ function ReflectionNotePage() {
 
 			<div className='reflection-note__field'>
 				<label htmlFor='reflection-note'>Din anteckning (valfritt)</label>
+
+				<div className='reflection-note__selection'>
+					{mood && (
+						<span className='reflection-note__mood'>
+							<span aria-hidden='true'>{mood.emoji}</span>
+							<span>{mood.label}</span>
+						</span>
+					)}
+
+					{tags.map((tag) => (
+						<span className='reflection-note__tag' key={tag}>
+							{tag}
+						</span>
+					))}
+				</div>
 
 				<textarea
 					id='reflection-note'
