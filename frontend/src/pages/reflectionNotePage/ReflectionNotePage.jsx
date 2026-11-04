@@ -9,10 +9,19 @@ function ReflectionNotePage({
 	totalSteps = 4,
 	onContinue,
 	onSkip,
+	onBack,
 }) {
 	const [note, setNote] = useState('');
 	return (
 		<main className='reflection-note'>
+			<button
+				className='reflection-note__back'
+				type='button'
+				aria-label='Tillbaka till föregående steg'
+				onClick={() => onBack?.()}>
+				<span aria-hidden='true'>←</span>
+			</button>
+
 			{activity && (
 				<p className='reflection-note__activity'>
 					{activity.name} · {activity.duration} min · {activity.timeLabel}

@@ -139,3 +139,23 @@
 .reflection-note__step--active {
 	background-color: var(--color-accent);
 }
+
+.reflection-note__back {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	align-self: flex-start;
+	width: var(--touch-target);
+	height: var(--touch-target);
+	border: none;
+	border-radius: var(--radius-full);
+	background-color: transparent;
+	color: var(--color-text);
+	font-size: var(--font-size-xl);
+	cursor: pointer;
+}
+
+.reflection-note__back:focus-visible {
+	outline: 2px solid var(--color-focus);
+	outline-offset: 2px;
+}
