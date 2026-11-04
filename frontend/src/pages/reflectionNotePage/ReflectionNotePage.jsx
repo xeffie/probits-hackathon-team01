@@ -12,7 +12,7 @@ function ReflectionNotePage({
 	onBack,
 	initialNote = '',
 }) {
-	const [note, setNote] = useState('initialNote');
+	const [note, setNote] = useState(initialNote);
 	return (
 		<main className='reflection-note'>
 			<button
