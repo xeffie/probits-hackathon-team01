@@ -7,6 +7,8 @@ function ReflectionNotePage({
 	activity = null,
 	currentStep = 3,
 	totalSteps = 4,
+	onContinue,
+	onSkip,
 }) {
 	const [note, setNote] = useState('');
 	return (
@@ -73,11 +75,17 @@ function ReflectionNotePage({
 				<p className='reflection-note__count'>{note.length}/250</p>
 			</div>
 			<div className='reflection-note__actions'>
-				<button className='reflection-note__continue' type='button'>
+				<button
+					className='reflection-note__continue'
+					type='button'
+					onClick={() => onContinue?.(note)}>
 					Fortsätt
 				</button>
 
-				<button className='reflection-note__skip' type='button'>
+				<button
+					className='reflection-note__skip'
+					type='button'
+					onClick={() => onSkip?.()}>
 					Hoppa över
 				</button>
 			</div>
