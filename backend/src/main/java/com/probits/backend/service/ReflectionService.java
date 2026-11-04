@@ -6,6 +6,8 @@ import com.probits.backend.repository.ReflectionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -29,4 +31,12 @@ public class ReflectionService {
         return reflectionRepository.save(reflection);
 
     }
+
+    public List<Reflection> getReflectionsByDate(LocalDate date) {
+        LocalDateTime start = date.atStartOfDay();
+        LocalDateTime end = start.plusDays(1);
+
+        return reflectionRepository.findByCreatedAtGreaterThanEqualAndCreatedAtLessThan(start, end);
+    }
+
 }

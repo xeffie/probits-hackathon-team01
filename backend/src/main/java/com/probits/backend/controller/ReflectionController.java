@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -19,7 +20,12 @@ public class ReflectionController {
     private final ReflectionService reflectionService;
 
     @GetMapping
-    public List<Reflection> getAllReflections() {
+    public List<Reflection> getAllReflections(@RequestParam(required = false) LocalDate date) {
+
+        if (date != null) {
+            return reflectionService.getReflectionsByDate(date);
+        }
+
         return reflectionService.getAllReflections();
     }
 
