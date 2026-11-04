@@ -124,3 +124,18 @@
 	font-size: var(--font-size-xs);
 	font-weight: var(--font-weight-bold);
 }
+
+.reflection-note__progress {
+	display: flex;
+	gap: var(--space-2);
+}
+
+.reflection-note__step {
+	flex: 1;
+	height: 4px;
+	background-color: var(--color-border);
+}
+
+.reflection-note__step--active {
+	background-color: var(--color-accent);
+}
