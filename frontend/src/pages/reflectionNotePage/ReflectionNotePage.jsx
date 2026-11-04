@@ -1,10 +1,16 @@
 import { useState } from 'react';
 import './reflectionNotePage.css';
 
-function ReflectionNotePage({ mood = null, tags = [] }) {
+function ReflectionNotePage({ mood = null, tags = [], activity = null }) {
 	const [note, setNote] = useState('');
 	return (
 		<main className='reflection-note'>
+			{activity && (
+				<p className='reflection-note__activity'>
+					{activity.name} · {activity.duration} min · {activity.timeLabel}
+				</p>
+			)}
+
 			<h1 className='reflection-note__title'>Vill du lägga till något?</h1>
 
 			<p className='reflection-note__description'>
