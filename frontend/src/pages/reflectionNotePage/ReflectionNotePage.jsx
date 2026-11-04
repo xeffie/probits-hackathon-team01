@@ -25,6 +25,15 @@ function ReflectionNotePage() {
 
 				<p className='reflection-note__count'>{note.length}/250</p>
 			</div>
+			<div className='reflection-note__actions'>
+				<button className='reflection-note__continue' type='button'>
+					Fortsätt
+				</button>
+
+				<button className='reflection-note__skip' type='button'>
+					Hoppa över
+				</button>
+			</div>
 		</main>
 	);
 }

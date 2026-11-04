@@ -51,3 +51,42 @@
 	color: var(--color-text-muted);
 	font-size: var(--font-size-xs);
 }
+
+.reflection-note__actions {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+	margin-top: auto;
+	padding-top: var(--space-5);
+}
+
+.reflection-note__continue,
+.reflection-note__skip {
+	min-height: var(--touch-target);
+	padding: var(--space-3) var(--space-4);
+	border: none;
+	border-radius: var(--radius-pill);
+	font: inherit;
+	font-weight: var(--font-wewight-bold);
+	cursor: pointer;
+}
+
+.reflection-note__continue {
+	background-color: var(--color-primary);
+	color: var(--color-on-primary);
+}
+
+.reflection-note__continue:hover {
+	background-color: var(--color-primary-hover);
+}
+
+.reflection-note__skip {
+	background-color: transparent;
+	color: var(--color-text-muted);
+}
+
+.reflection-note__continue:focus-visible,
+.reflection-note::skip:focus-visible {
+	outline: 2px solid var(--color-focus);
+	outline-offset: 2px;
+}
