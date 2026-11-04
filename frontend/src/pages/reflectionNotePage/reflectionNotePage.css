@@ -90,3 +90,27 @@
 	outline: 2px solid var(--color-focus);
 	outline-offset: 2px;
 }
+
+.reflection-note__selection {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--space-2);
+}
+
+.reflection-note__mood {
+	display: inline-flex;
+	align-items: center;
+	gap: var(--space-2);
+	font-size: var(--font-size-sm);
+	font-weight: var(--font-weight-bold);
+}
+
+.reflection-note__tag {
+	padding: var(--space-1) var(--space-2);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-pill);
+	background-color: var(--brand-purple-light);
+	color: var(--color-primary);
+	font-size: var(--font-size-xs);
+}
