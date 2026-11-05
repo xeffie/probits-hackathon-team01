@@ -11,6 +11,8 @@
   color: var(--color-text);
   font-family: var(--font-family);
   padding-bottom: 7rem;
+  -webkit-tap-highlight-color: transparent; /* ingen blå fyrkant vid tryck */
+  user-select: none;
 }
 
 .reflection-tags__mood {

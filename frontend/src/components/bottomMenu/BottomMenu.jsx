@@ -1,22 +1,21 @@
+import { NavLink } from "react-router-dom";
 import "./bottomMenu.css";
 
-export const BottomMenu = ({ onHome }) => {
+export const BottomMenu = () => {
   return (
-    <section>
-      <section className="menu">
-        <button className="menu__button" onClick={onHome}>
-          <i class="fa-solid fa-house icon"></i>
-        </button>
-        <button className="menu__button" onClick={onHome}>
-          <i class="fa-solid fa-calendar icon"></i>
-        </button>
-        <button className="menu__button" onClick={onHome}>
-          <i class="fa-solid fa-user-group icon"></i>
-        </button>
-        <button className="menu__button" onClick={onHome}>
-          <i className="fa-solid fa-message icon"></i>
-        </button>
-      </section>
-    </section>
+    <nav className="menu" aria-label="Huvudmeny">
+      <NavLink to="/" end className="menu__button" aria-label="Hem">
+        <i className="fa-solid fa-house icon" aria-hidden="true"></i>
+      </NavLink>
+      <NavLink to="/calendar" className="menu__button" aria-label="Kalender">
+        <i className="fa-solid fa-calendar icon" aria-hidden="true"></i>
+      </NavLink>
+      <NavLink to="/community" className="menu__button" aria-label="Community">
+        <i className="fa-solid fa-user-group icon" aria-hidden="true"></i>
+      </NavLink>
+      <NavLink to="/messages" className="menu__button" aria-label="Meddelanden">
+        <i className="fa-solid fa-message icon" aria-hidden="true"></i>
+      </NavLink>
+    </nav>
   );
 };
