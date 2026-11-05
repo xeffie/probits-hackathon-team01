@@ -13,7 +13,11 @@ export default function ParticipantDetails({
 
 	return (
 		<main className='coach-page'>
-			<button type='button' onClick={onBack}>
+			<button
+				className='coach-page__button'
+				type='button'
+				aria-label='Tillbaka till deltagarlisten'
+				onClick={onBack}>
 				← Deltagare
 			</button>
 

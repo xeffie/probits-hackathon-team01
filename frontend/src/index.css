@@ -1,107 +1,130 @@
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 :root {
-  /* ---------- Varumärke ---------- */
-  --brand-purple: #8874b1; /* markeringar, progress, valda chips, ikoner */
-  --brand-purple-dark: #6a5696; /* knappar med vit text (6.2:1) */
-  --brand-purple-light: #efecf6; /* tonad bakgrund, valda chips */
+	/* ---------- Varumärke ---------- */
+	--brand-purple: #8874b1; /* markeringar, progress, valda chips, ikoner */
+	--brand-purple-dark: #6a5696; /* knappar med vit text (6.2:1) */
+	--brand-purple-light: #efecf6; /* tonad bakgrund, valda chips */
 
-  --brand-blue: #30b8ef; /* ytor, ikoner, dekor – aldrig text på vitt */
-  --brand-blue-dark: #08709f; /* länkar, fokusring (5.5:1) */
-  --brand-blue-light: #e2f5fd; /* tonad bakgrund */
+	--brand-blue: #30b8ef; /* ytor, ikoner, dekor – aldrig text på vitt */
+	--brand-blue-dark: #08709f; /* länkar, fokusring (5.5:1) */
+	--brand-blue-light: #e2f5fd; /* tonad bakgrund */
 
-  /* ---------- Roller ---------- */
-  --color-primary: var(--brand-purple-dark);
-  --color-primary-hover: #5a4782;
-  --color-primary-disabled: #c4badb;
-  --color-on-primary: #ffffff;
-  --color-secondary: var(--brand-blue-dark);
-  --color-accent: var(--brand-purple);
-  --color-focus: var(--brand-blue-dark);
+	/* ---------- Roller ---------- */
+	--color-primary: var(--brand-purple-dark);
+	--color-primary-hover: #5a4782;
+	--color-primary-disabled: #c4badb;
+	--color-on-primary: #ffffff;
+	--color-secondary: var(--brand-blue-dark);
+	--color-accent: var(--brand-purple);
+	--color-focus: var(--brand-blue-dark);
 
-  /* ---------- Ytor ---------- */
-  --color-bg: #f3f4f6; /* sidbakgrund */
-  --color-surface: #ffffff; /* kort, textfält, chips */
-  --color-surface-2: #e9ebef; /* nedtonade ytor */
-  --color-border: #d5d8de;
+	/* ---------- Ytor ---------- */
+	--color-bg: #f3f4f6; /* sidbakgrund */
+	--color-surface: #ffffff; /* kort, textfält, chips */
+	--color-surface-2: #e9ebef; /* nedtonade ytor */
+	--color-border: #d5d8de;
 
-  /* ---------- Text ---------- */
-  --color-text: #1a1d29; /* rubriker och brödtext */
-  --color-text-muted: #5b6170; /* hjälptext, teckenräknare */
+	/* ---------- Text ---------- */
+	--color-text: #1a1d29; /* rubriker och brödtext */
+	--color-text-muted: #5b6170; /* hjälptext, teckenräknare */
 
-  /* ---------- Måendeskala 1–5 (mörk text ovanpå) ---------- */
-  --mood-1: #ef5f63; /* Mycket dåligt – röd */
-  --mood-2: #f2994a; /* Dåligt – orange */
-  --mood-3: #f2c94c; /* Okej – gul */
-  --mood-4: #a8d672; /* Bra – ljusgrön */
-  --mood-5: #4caf6e; /* Mycket bra – grön */
+	/* ---------- Måendeskala 1–5 (mörk text ovanpå) ---------- */
+	--mood-1: #ef5f63; /* Mycket dåligt – röd */
+	--mood-2: #f2994a; /* Dåligt – orange */
+	--mood-3: #f2c94c; /* Okej – gul */
+	--mood-4: #a8d672; /* Bra – ljusgrön */
+	--mood-5: #4caf6e; /* Mycket bra – grön */
 
-  /* ---------- Områden (metodens tre delar): ikonfärg + bakgrund ---------- */
-  --area-physical: var(--brand-blue-dark);
-  --area-physical-bg: var(--brand-blue-light);
-  --area-food: #9a5418;
-  --area-food-bg: #fdeedf;
-  --area-balance: var(--brand-purple-dark);
-  --area-balance-bg: var(--brand-purple-light);
+	/* ---------- Områden (metodens tre delar): ikonfärg + bakgrund ---------- */
+	--area-physical: var(--brand-blue-dark);
+	--area-physical-bg: var(--brand-blue-light);
+	--area-food: #9a5418;
+	--area-food-bg: #fdeedf;
+	--area-balance: var(--brand-purple-dark);
+	--area-balance-bg: var(--brand-purple-light);
 
-  /* ---------- Status ---------- */
-  --color-success: #2e8b6a;
-  --color-warning: #b7791f;
-  --color-error: #c0392b;
+	/* ---------- Status ---------- */
+	--color-success: #2e8b6a;
+	--color-warning: #b7791f;
+	--color-error: #c0392b;
 
-  /* ---------- Typografi ---------- */
-  --font-family: "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif;
+	/* ---------- Typografi ---------- */
+	--font-family: 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
-  --font-size-xs: 0.75rem; /* 12px */
-  --font-size-sm: 0.875rem; /* 14px */
-  --font-size-base: 1rem; /* 16px */
-  --font-size-md: 1.125rem; /* 18px */
-  --font-size-lg: 1.25rem; /* 20px */
-  --font-size-xl: 1.75rem; /* 28px */
-  --font-size-2xl: 2rem; /* 32px, frågerubriker */
+	--font-size-xs: 0.75rem; /* 12px */
+	--font-size-sm: 0.875rem; /* 14px */
+	--font-size-base: 1rem; /* 16px */
+	--font-size-md: 1.125rem; /* 18px */
+	--font-size-lg: 1.25rem; /* 20px */
+	--font-size-xl: 1.75rem; /* 28px */
+	--font-size-2xl: 2rem; /* 32px, frågerubriker */
 
-  --font-weight-regular: 400;
-  --font-weight-medium: 600;
-  --font-weight-bold: 700;
-  --font-weight-black: 800;
+	--font-weight-regular: 400;
+	--font-weight-medium: 600;
+	--font-weight-bold: 700;
+	--font-weight-black: 800;
 
-  --line-height-tight: 1.2;
-  --line-height-base: 1.5;
+	--line-height-tight: 1.2;
+	--line-height-base: 1.5;
 
-  /* ---------- Avstånd (8-skala) ---------- */
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 24px;
-  --space-6: 32px;
-  --space-7: 48px;
+	/* ---------- Avstånd (8-skala) ---------- */
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-3: 12px;
+	--space-4: 16px;
+	--space-5: 24px;
+	--space-6: 32px;
+	--space-7: 48px;
 
-  /* ---------- Hörnradier ---------- */
-  --radius-sm: 8px; /* textfält */
-  --radius-md: 16px; /* kort */
-  --radius-pill: 999px; /* knappar, chips */
-  --radius-full: 50%; /* smileys, kalenderdagar */
+	/* ---------- Hörnradier ---------- */
+	--radius-sm: 8px; /* textfält */
+	--radius-md: 16px; /* kort */
+	--radius-pill: 999px; /* knappar, chips */
+	--radius-full: 50%; /* smileys, kalenderdagar */
 
-  /* ---------- Storlekar (mobil) ---------- */
-  --app-max-width: 480px; /* appen centreras på större skärmar */
-  --touch-target: 44px; /* minsta tryckyta */
-  --bottom-nav-height: 64px;
-  --smiley-size: 56px;
-  --smiley-size-sm: 32px;
-  --smiley-size-lg: 96px;
-  --icon-badge-size: 40px;
-  --safe-top: env(safe-area-inset-top, 0px);
-  --safe-bottom: env(safe-area-inset-bottom, 0px);
+	/* ---------- Storlekar (mobil) ---------- */
+	--app-max-width: 480px; /* appen centreras på större skärmar */
+	--touch-target: 44px; /* minsta tryckyta */
+	--bottom-nav-height: 64px;
+	--smiley-size: 56px;
+	--smiley-size-sm: 32px;
+	--smiley-size-lg: 96px;
+	--icon-badge-size: 40px;
+	--safe-top: env(safe-area-inset-top, 0px);
+	--safe-bottom: env(safe-area-inset-bottom, 0px);
 }
 
 .wrapper {
-  max-width: var(--app-max-width);
-  width: 100%;
-  margin: 0 auto;
-  background-color: var(--color-bg);
+	max-width: var(--app-max-width);
+	width: 100%;
+	margin: 0 auto;
+	background-color: var(--color-bg);
+}
+
+.view-switch {
+	max-width: var(--app-max-width);
+	margin: 0 auto;
+	padding: var(--space-2) var(--space-4);
+	display: flex;
+	justify-content: flex-end;
+}
+
+.view-switch a {
+	padding: var(--space-2) var(--space-3);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-pill);
+	background: var(--color-surface);
+	color: var(--color-primary);
+	font-size: var(--font-size-sm);
+	text-decoration: none;
+}
+
+.view-switch a:focus-visible {
+	outline: 2px solid var(--color-focus);
+	outline-offset: 2px;
 }
