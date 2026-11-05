@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import MoodFace from '../../moodComponents/MoodFace';
 import './reflectionNotePage.css';
 
 function ReflectionNotePage({
@@ -24,9 +25,7 @@ function ReflectionNotePage({
 			</button>
 
 			{activity && (
-				<p className='reflection-note__activity'>
-					{activity.name} · {activity.duration} min · {activity.timeLabel}
-				</p>
+				<p className='reflection-note__activity'>{activity.activityName}</p>
 			)}
 
 			<div
