@@ -1,0 +1,57 @@
+.step-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  max-width: var(--app-max-width);
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family);
+}
+
+.step-intro h1 {
+  margin: 0 0 var(--space-3);
+  font-size: var(--font-size-2xl);
+  line-height: var(--line-height-tight);
+}
+
+.step-intro p {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.mood-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.step-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.btn-primary {
+  padding: var(--space-4);
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font: inherit;
+  font-weight: var(--font-weight-medium);
+}
+
+.btn-primary:disabled {
+  background: var(--color-primary-disabled);
+}
+
+.btn-text {
+  padding: var(--space-3);
+  border: none;
+  background: none;
+  font: inherit;
+  font-weight: var(--font-weight-medium);
+}
