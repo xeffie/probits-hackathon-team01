@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import CoachFeedbackForm from './CoachFeedbackForm';
 import ParticipantOverview from './ParticipantOverview';
 
 export default function ParticipantDetails({
@@ -39,7 +40,10 @@ export default function ParticipantDetails({
 			</nav>
 
 			{activeTab === 'overview' && (
-				<ParticipantOverview reflections={reflections} />
+				<>
+					<ParticipantOverview reflections={reflections} />
+					<CoachFeedbackForm participantName={participant.name} />
+				</>
 			)}
 
 			{activeTab === 'chat' && <p>Här kommer chatten.</p>}
