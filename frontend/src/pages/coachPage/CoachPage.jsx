@@ -1,3 +1,4 @@
+import { coachReflections } from '../../reflectionData/coachReflections';
 import { useState } from 'react';
 import MoodFace from '../../moodComponents/MoodFace';
 import { getMoodById } from '../../reflectionData/moods';
@@ -14,6 +15,9 @@ export default function CoachPage() {
 	);
 
 	if (selectedParticipant) {
+		const participantReflections = coachReflections.filter(
+			(reflection) => reflection.participantId === selectedParticipant.id,
+		);
 		return (
 			<main className='coach-page'>
 				<button type='button' onClick={() => setSelectedParticipant(null)}>
@@ -22,7 +26,9 @@ export default function CoachPage() {
 
 				<h1>{selectedParticipant.name}</h1>
 				<p>
-					<nav aria-label='Deltagarens information'>
+					<nav
+						className='coach-page__tabs'
+						aria-label='Deltagarens information'>
 						<button
 							type='button'
 							aria-pressed={activeTab === 'overview'}
@@ -45,7 +51,33 @@ export default function CoachPage() {
 						</button>
 					</nav>
 
-					{activeTab === 'overview' && <p>Här kommer veckans reflektioner.</p>}
+					{activeTab === 'overview' && (
+						<section aira-labelledby='reflections-heading'>
+							<h2 id='reflections-heading'>Veckans reflektioner</h2>
+							<p>Exempeldata för deltagare</p>
+
+							{participantReflections.length === 0 ? (
+								<p>Inga reflektioner att visa.</p>
+							) : (
+								participantReflections.map((reflection) => (
+									<article
+										className='coach-page__reflection'
+										key={reflection.id}>
+										<h3>{reflection.activityName}</h3>
+										<p>{reflection.date}</p>
+
+										<div className='coach-page__reflection-mood'>
+											<MoodFace mood={getMoodById(reflection.mood)} size={28} />
+											<span>{getMoodById(reflection.mood).label}</span>
+										</div>
+										<p>{reflection.tags.join(' · ')}</p>
+										<p>{reflection.note}</p>
+									</article>
+								))
+							)}
+						</section>
+					)}
+
 					{activeTab === 'chat' && <p>Här kommer chatten.</p>}
 					{activeTab === 'planning' && (
 						<p>Här kommer nästa veckas planering.</p>
