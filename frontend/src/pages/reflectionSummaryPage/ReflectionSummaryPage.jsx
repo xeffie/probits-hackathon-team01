@@ -1,14 +1,19 @@
-import { mockCoach, mockReflection } from "../../reflectionData/mockReflection";
+import { mockCoach, mockGroup, mockReflection } from "../../reflectionData/mockReflection";
 import { getMoodById } from "../../reflectionData/moods";
 import SummaryCard from "../../summaryComponents/SummaryCard";
 import "./reflectionSummaryPage.css";
 import "../reflectionMoodPage/reflectionMoodPage.css";
 import CoachNotice from "../../summaryComponents/CoachNotice";
+import ShareToggleCard from "../../summaryComponents/ShareToggleCard";
+import { useState } from "react";
 
 
 export default function ReflectionSummaryPage() {
   const { moodId, tags, note, activity, dateLabel } = mockReflection;
   const mood = getMoodById(moodId);
+
+const [shareEnabled, setShareEnabled] = useState(false);
+
 
   return (
     <section className="step-page" aria-labelledby="summary-heading">
@@ -29,6 +34,7 @@ export default function ReflectionSummaryPage() {
       </div>
 
       <CoachNotice coach={mockCoach} />
+      <ShareToggleCard enabled={shareEnabled} onToggle={() => setShareEnabled((current) => !current)} group={mockGroup}/>
 
       <div className="step-actions">
         <button type="button" className="btn-primary">

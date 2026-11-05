@@ -1,0 +1,39 @@
+.share-card {
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  margin-bottom: var(--space-5);
+}
+
+.share-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.share-head h2 { margin: 0; font-size: var(--font-size-md); }
+
+/* Reglage */
+.toggle {
+  position: relative;
+  width: 52px;
+  height: 32px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--color-border);
+  cursor: pointer;
+  transition: background 150ms ease;
+  -webkit-tap-highlight-color: transparent; /* ingen blå fyrkant vid tryck */
+  user-select: none; 
+}
+.toggle span {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 24px;
+  height: 24px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  transition: transform 150ms ease;
+}
+.toggle.is-on { background: var(--color-primary); }
+.toggle.is-on span { transform: translateX(20px); }
