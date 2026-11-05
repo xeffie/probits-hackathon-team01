@@ -8,6 +8,7 @@ function App() {
 			mood={getMoodById(2)}
 			onContinue={(tags) => console.log('Valda taggar:', tags)}
 			onSkip={() => console.log('Hoppa över - inga taggar')}
+			onBack={() => console.log('Tillbaka till mående.')}
 		/>
 	);
 }

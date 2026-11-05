@@ -39,6 +39,14 @@ function ReflectionTagsPage({
 
 	return (
 		<main className='reflection-tgs'>
+			<button
+				className='reflection-tags__back'
+				type='button'
+				aria-label='Tillbaka till föregående steg'
+				onClick={() => onBack?.()}>
+				<span aria-hidden='true'>←</span>
+			</button>
+
 			<h1>Vad påverkar ditt mående?</h1>
 			<p>Välj det som hänger ihop med hur du mår idag. Du kan välja flera.</p>
 
