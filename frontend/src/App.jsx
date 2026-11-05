@@ -5,6 +5,7 @@ import ReflectionNotePage from "./pages/reflectionNotePage/ReflectionNotePage";
 import ReflectionMoodPage from "./pages/reflectionMoodPage/ReflectionMoodPage";
 import ReflectionSummaryPage from "./pages/reflectionSummaryPage/ReflectionSummaryPage.jsx";
 import { getMoodById } from "./reflectionData/moods";
+import { BottomMenu } from "./components/bottomMenu/BottomMenu.jsx";
 
 function App() {
   const [step, setStep] = useState("home");
@@ -59,6 +60,7 @@ function App() {
         ></ReflectionNotePage>
       )}
       {step === "summary" && <ReflectionSummaryPage />}
+      <BottomMenu onHome={() => setStep("home")} />
     </>
   );
 }

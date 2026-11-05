@@ -10,6 +10,7 @@
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-family);
+  padding-bottom: 7rem;
 }
 
 .reflection-note__title {

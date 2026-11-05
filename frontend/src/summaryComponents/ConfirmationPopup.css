@@ -15,14 +15,22 @@
   gap: var(--space-3);
   width: 100%;
   max-width: var(--app-max-width);
-  padding: var(--space-6) var(--space-4) calc(var(--space-5) + var(--safe-bottom));
+  padding: var(--space-6) var(--space-4)
+    calc(var(--space-5) + var(--safe-bottom));
   border-radius: var(--radius-md) var(--radius-md) 0 0;
   background: var(--color-surface);
   text-align: center;
+  padding-bottom: 7rem;
 }
 
-.popup h2 { margin: 0; font-size: var(--font-size-xl); }
-.popup p { margin: 0; color: var(--color-text-muted); }
+.popup h2 {
+  margin: 0;
+  font-size: var(--font-size-xl);
+}
+.popup p {
+  margin: 0;
+  color: var(--color-text-muted);
+}
 
 .popup-meta {
   margin: 0;
@@ -32,4 +40,7 @@
   color: var(--color-text-muted);
 }
 
-.popup .btn-primary { width: 100%; margin-top: var(--space-3); }
+.popup .btn-primary {
+  width: 100%;
+  margin-top: var(--space-3);
+}
