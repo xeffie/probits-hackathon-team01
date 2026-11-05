@@ -1,13 +1,10 @@
-import ReflectionNotePage from './pages/reflectionNotePage/ReflectionNotePage';
+//import ReflectionNotePage from './pages/reflectionNotePage/ReflectionNotePage';
 import ReflectionTagsPage from './pages/reflectionTagsPage/ReflectionTagsPage';
+import { getMoodById } from './reflectionData/moods';
 
 function App() {
-	return (
-		<>
-			<ReflectionTagsPage />
-			<ReflectionNotePage activity={activity} mood={mood} tags={tags} />
-		</>
-	);
+	return <ReflectionTagsPage mood={getMoodById(2)} />;
 }
 
 export default App;
+//<ReflectionNotePage activity={activity} mood={mood} tags={tags} />

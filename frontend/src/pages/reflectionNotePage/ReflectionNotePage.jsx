@@ -76,7 +76,7 @@ function ReflectionNotePage({
 				<textarea
 					id='reflection-note'
 					className='reflection-note__input'
-					placeholder='T.ex. Sov dåligt men prommenaden hjälpte'
+					placeholder='T.ex. Sov dåligt men promenaden hjälpte'
 					maxLength={250}
 					value={note}
 					onChange={(event) => setNote(event.target.value)}
