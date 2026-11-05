@@ -36,4 +36,11 @@ public class CoachFeedbackService {
 
     }
 
+    public List<CoachFeedback> getFeedbackByWeek (LocalDate weekStart) {
+        LocalDate monday = weekStart.with(
+                TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY)
+        );
+        return coachFeedbackRepository.findByWeekStart(monday);
+    }
+
 }
