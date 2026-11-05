@@ -3,6 +3,7 @@ import { Home } from "./pages/home/Home.jsx";
 import ReflectionTagsPage from "./pages/reflectionTagsPage/ReflectionTagsPage";
 import ReflectionNotePage from "./pages/reflectionNotePage/ReflectionNotePage";
 import ReflectionMoodPage from "./pages/reflectionMoodPage/ReflectionMoodPage";
+import ReflectionSummaryPage from "./pages/reflectionSummaryPage/ReflectionSummaryPage.jsx";
 import { getMoodById } from "./reflectionData/moods";
 
 function App() {
@@ -50,10 +51,14 @@ function App() {
           mood={mood}
           tags={tags}
           onBack={() => setStep("tags")}
-          onContinue={(note) => console.log("Anteckning", note)}
+          onContinue={(note) => {
+            console.log("Anteckning", note);
+            setStep("summary");
+          }}
           onSkip={() => console.log("Hoppa över anteckning")}
         ></ReflectionNotePage>
       )}
+      {step === "summary" && <ReflectionSummaryPage />}
     </>
   );
 }
