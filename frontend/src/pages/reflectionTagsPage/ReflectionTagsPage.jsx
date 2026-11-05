@@ -66,6 +66,16 @@ function ReflectionTagsPage({
 					</div>
 				</fieldset>
 			))}
+
+			<div className='reflection-tags__actions'>
+				<button type='button' onClick={() => onContinue?.(selectedTags)}>
+					Fortsätt
+				</button>
+
+				<button type='button' onClick={() => onSkip?.()}>
+					HoppaÖver
+				</button>
+			</div>
 		</main>
 	);
 }
