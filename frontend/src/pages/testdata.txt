@@ -1,0 +1,86 @@
+//Bara testdata för att se att taggar, aktivitetsfält och liknande ser rätt ut.
+
+const testCases = [
+	{
+		// Normalfallet
+		activity: {
+			name: 'Promenad',
+			duration: 30,
+			timeLabel: 'Idag 07:45',
+		},
+		mood: { emoji: '🙂', label: 'Bra' },
+		tags: ['Rörelse i vardagen'],
+		currentStep: 3,
+		totalSteps: 4,
+		initialNote: '',
+	},
+	{
+		// Lång aktivitet och många taggar på smal skärm
+		activity: {
+			name: 'En lugn promenad tillsammans med en kompis efter jobbet',
+			duration: 45,
+			timeLabel: 'Igår 17:30',
+		},
+		mood: { emoji: '😞', label: 'Dåligt' },
+		tags: [
+			'Sömn',
+			'Stress',
+			'Orkade inte röra mig',
+			'Regelbundna måltider',
+			'Återhämtning',
+		],
+		currentStep: 2,
+		totalSteps: 5,
+		initialNote:
+			'Det var svårt att komma iväg, men sällskapet gjorde det lättare.',
+	},
+	{
+		// Inga valda taggar
+		activity: {
+			name: 'Cykel till jobbet',
+			duration: 25,
+			timeLabel: 'Idag 08:05',
+		},
+		mood: { emoji: '😐', label: 'Okej' },
+		tags: [],
+		currentStep: 1,
+		totalSteps: 4,
+		initialNote: 'En ganska vanlig morgon.',
+	},
+	{
+		// Maxlängd: exakt 250 tecken
+		activity: {
+			name: 'Laga lunch',
+			duration: 20,
+			timeLabel: 'Idag 12:00',
+		},
+		mood: { emoji: '😄', label: 'Mycket bra' },
+		tags: ['Regelbundna måltider', 'Återhämtning'],
+		currentStep: 4,
+		totalSteps: 4,
+		initialNote: 'En tanke om dagen. '.repeat(14).slice(0, 250),
+	},
+	{
+		// Saknad aktivitet och saknat mående
+		activity: null,
+		mood: null,
+		tags: [],
+		currentStep: 3,
+		totalSteps: 4,
+		initialNote: '',
+	},
+	{
+		// Lägsta måendet och radbrytningar
+		activity: {
+			name: 'Vila',
+			duration: 10,
+			timeLabel: 'Idag 15:00',
+		},
+		mood: { emoji: '😢', label: 'Mycket dåligt' },
+		tags: ['Stress', 'Sömn'],
+		currentStep: 3,
+		totalSteps: 4,
+		initialNote:
+			'Jag var trött idag.\n\nNästa gång vill jag prova ett mindre steg.',
+	},
+];
