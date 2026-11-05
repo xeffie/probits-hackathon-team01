@@ -28,6 +28,29 @@ span {
   font-size: var(--font-size-2xl);
 }
 
+
+.home__anv-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(105, 85, 150, 0.35);
+  box-shadow: 0 2px 8px rgba(105, 85, 150, 0.12);
+
+  background-color: #eeeaf5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-family);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  color: rgba(105, 85, 150, 0.65);
+
+  flex-shrink: 0;
+}
+
 .home__anv-icon {
   width: 50px;
   height: 50px;
@@ -130,6 +153,33 @@ span {
   justify-content: center;
   align-items: center;
   background-color: var(--mood-4);
+}
+
+.day__label {
+  color: var(--color-text);
+}
+
+.day__label--planned,
+.day__label--empty {
+  color: #9b9b9b;
+}
+
+.weekday--good {
+  background-color: #a8d36f;
+}
+
+.weekday--okay {
+  background-color: #e8c34b;
+}
+
+.weekday--planned {
+  background-color: transparent;
+  border: 2px solid #e8c34b;
+}
+
+.weekday--empty {
+  background-color: #f0f0f2;
+  border: 1px solid #e8e8eb;
 }
 
 .day {

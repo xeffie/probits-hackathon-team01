@@ -6,6 +6,7 @@ import ReflectionMoodPage from './pages/reflectionMoodPage/ReflectionMoodPage.js
 import ReflectionTagsPage from './pages/reflectionTagsPage/ReflectionTagsPage.jsx';
 import ReflectionSummaryPage from './pages/reflectionSummaryPage/ReflectionSummaryPage.jsx';
 import CoachPage from './pages/coachPage/CoachPage';
+import CoachingPage from "./pages/coachingPage/CoachingPage.jsx";
 
 const routing = createBrowserRouter([
 	{
@@ -35,6 +36,10 @@ const routing = createBrowserRouter([
 			{
 				path: '*',
 				element: <Navigate to='/' replace />,
+			},
+			{
+				path: "coaching",
+				element: <CoachingPage />,
 			},
 			{
 				path: 'coach',
