@@ -13,9 +13,9 @@ export const BottomMenu = () => {
       <NavLink to="/community" className="menu__button" aria-label="Community">
         <i className="fa-solid fa-user-group icon" aria-hidden="true"></i>
       </NavLink>
-      <NavLink to="/messages" className="menu__button" aria-label="Meddelanden">
-        <i className="fa-solid fa-message icon" aria-hidden="true"></i>
-      </NavLink>
+      <NavLink to="/coaching" className="menu__button" aria-label="Coachning">
+      <i className="fa-solid fa-message icon" aria-hidden="true"></i>
+    </NavLink>
     </nav>
   );
 };

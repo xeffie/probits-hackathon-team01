@@ -10,6 +10,7 @@
 	background: var(--color-bg);
 	color: var(--color-text);
 	font-family: var(--font-family);
+	padding-bottom: calc(120px + var(--safe-bottom));
 }
 
 .coach-page__participants {
@@ -326,3 +327,53 @@
 	outline: 2px solid var(--color-focus);
 	outline-offset: 2px;
 }
+
+
+.coach-page__demo-card {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: var(--space-3);
+	padding: var(--space-4);
+	background: var(--color-surface);
+	border: 1px solid var(--brand-purple-light);
+	border-radius: 24px;
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.coach-page__demo-card h2,
+.coach-page__demo-card p {
+	margin: 0;
+}
+
+.coach-page__demo-card p {
+	line-height: 1.5;
+}
+
+.coach-page__demo-badge {
+	padding: 6px 10px;
+	border-radius: 999px;
+	background: var(--brand-purple-light);
+	color: var(--color-primary);
+	font-size: var(--font-size-sm);
+	font-weight: 700;
+}
+
+.coach-page__demo-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-height: var(--touch-target);
+	width: 100%;
+	padding: var(--space-2) var(--space-4);
+	border-radius: var(--radius-pill);
+	background: var(--color-primary);
+	color: var(--color-on-primary);
+	font-weight: var(--font-weight-bold);
+	text-decoration: none;
+}
+
+.coach-page__demo-button:hover {
+	background: var(--color-primary-hover);
+}
+
