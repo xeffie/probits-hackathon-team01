@@ -38,7 +38,7 @@ function ReflectionTagsPage({
 	}
 
 	return (
-		<main className='reflection-tgs'>
+		<main className='reflection-tags'>
 			<button
 				className='reflection-tags__back'
 				type='button'
@@ -46,6 +46,26 @@ function ReflectionTagsPage({
 				onClick={() => onBack?.()}>
 				<span aria-hidden='true'>←</span>
 			</button>
+
+			{activity && (
+				<p className='reflection-tags__activity'>{activity.activityName}</p>
+			)}
+
+			<div
+				className='reflection-tags__progress'
+				role='progressbar'
+				aria-label='Reflektionsflöde'
+				aria-valuemin={0}
+				aria-valuemax={totalSteps}
+				aria-valuenow={currentStep}
+				aria-valuetext={`Steg ${currentStep} av ${totalSteps}`}>
+				{Array.from({ length: totalSteps }, (_, index) => (
+					<span
+						key={index}
+						className={index < currentStep ? 'is-active' : ''}
+					/>
+				))}
+			</div>
 
 			<h1>Vad påverkar ditt mående?</h1>
 			<p>Välj det som hänger ihop med hur du mår idag. Du kan välja flera.</p>
@@ -81,7 +101,7 @@ function ReflectionTagsPage({
 				</button>
 
 				<button type='button' onClick={() => onSkip?.()}>
-					HoppaÖver
+					Hoppa över
 				</button>
 			</div>
 		</main>

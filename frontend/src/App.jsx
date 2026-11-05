@@ -9,6 +9,10 @@ function App() {
 			onContinue={(tags) => console.log('Valda taggar:', tags)}
 			onSkip={() => console.log('Hoppa över - inga taggar')}
 			onBack={() => console.log('Tillbaka till mående.')}
+			activity={{
+				id: 1,
+				activityName: 'Cykel till jobbet',
+			}}
 		/>
 	);
 }
