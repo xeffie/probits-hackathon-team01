@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import CoachFeedbackForm from './CoachFeedbackForm';
 import ParticipantOverview from './ParticipantOverview';
+import ParticipantChat from './ParticipantChat.jsx.jsx';
 
 export default function ParticipantDetails({
 	participant,
@@ -46,7 +47,9 @@ export default function ParticipantDetails({
 				</>
 			)}
 
-			{activeTab === 'chat' && <p>Här kommer chatten.</p>}
+			{activeTab === 'chat' && (
+				<ParticipantChat participantName={participant.name} />
+			)}
 			{activeTab === 'planning' && <p>Här kommer nästa veckas planering.</p>}
 		</main>
 	);
