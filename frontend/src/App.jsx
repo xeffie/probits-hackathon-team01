@@ -1,4 +1,7 @@
+import ReflectionNotePage from './pages/reflectionNotePage/ReflectionNotePage';
+
 function App() {
-	return <div className='app'>halloj</div>;
+	return <ReflectionNotePage />;
 }
+
 export default App;
