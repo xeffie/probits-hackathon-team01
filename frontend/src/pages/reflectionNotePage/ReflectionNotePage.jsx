@@ -61,7 +61,7 @@ function ReflectionNotePage({
 				<div className='reflection-note__selection'>
 					{mood && (
 						<span className='reflection-note__mood'>
-							<span aria-hidden='true'>{mood.emoji}</span>
+							<MoodFace mood={mood} size={24} />
 							<span>{mood.label}</span>
 						</span>
 					)}
