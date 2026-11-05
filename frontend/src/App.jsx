@@ -14,18 +14,37 @@ function App() {
 	};
 
 	return (
-		<ReflectionTagsPage
-			mood={getMoodById(2)}
-			onContinue={(tags) => console.log('Valda taggar:', tags)}
-			onSkip={() => console.log('Hoppa över - inga taggar')}
-			onBack={() => console.log('Tillbaka till mående.')}
-			activity={{
-				id: 1,
-				activityName: 'Cykel till jobbet',
-			}}
-		/>
+		<>
+			{step === 'tags' && (
+				<ReflectionTagsPage
+					activity={activity}
+					mood={mood}
+					initialPage={tags}
+					onContinue={(selectedTags) => {
+						setTags(selectedTags);
+						setStep('note');
+					}}
+					onSkip={() => {
+						setTags([]);
+						setStep('note');
+					}}
+					onBack={() => console.log('Tillbaka till mående')}
+				/>
+			)}
+
+			{step === 'note' && (
+				<ReflectionNotePage
+					activity={activity}
+					mood={mood}
+					tags={tags}
+					onBack={() => setStep('tags')}
+					onContinue={(note) => console.log('Anteckning', note)}
+					onSkip={() =>
+						console.log('Hoppa över anteckning')
+					}></ReflectionNotePage>
+			)}
+		</>
 	);
 }
 
 export default App;
-//<ReflectionNotePage activity={activity} mood={mood} tags={tags} />
