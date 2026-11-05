@@ -1,6 +1,6 @@
 
 # Stage 1: Build the application
-FROM eclipse-temurin:21-jdk AS build
+FROM eclipse-temurin:25-jdk AS build
 
 WORKDIR /app
 
@@ -15,7 +15,7 @@ COPY src/ src/
 RUN ./mvnw clean package -DskipTests -B
 
 # Stage 2: Run the application
-FROM eclipse-temurin:21-jre
+FROM eclipse-temurin:25-jre
 
 WORKDIR /app
 

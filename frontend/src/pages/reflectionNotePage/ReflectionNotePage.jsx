@@ -1,32 +1,145 @@
-import { useState } from "react";
-import "./reflectionNotePage.css";
-import MoodFace from "../../moodComponents/MoodFace";
+// import { useState } from "react";
+// import "./reflectionNotePage.css";
+// import MoodFace from "../../moodComponents/MoodFace";
 
-function ReflectionNotePage({
-  mood = null,
-  tags = [],
-  activity = null,
-  currentStep = 3,
-  totalSteps = 4,
-  onContinue,
-  onSkip,
-  onBack,
-  initialNote = "",
-}) {
-  const [note, setNote] = useState(initialNote);
+// function ReflectionNotePage({
+//   mood = null,
+//   tags = [],
+//   activity = null,
+//   currentStep = 3,
+//   totalSteps = 4,
+//   onContinue,
+//   onSkip,
+//   onBack,
+//   initialNote = "",
+// }) {
+//   const [note, setNote] = useState(initialNote);
+//   return (
+//     <main className="reflection-note">
+//       <button
+//         className="reflection-note__back"
+//         type="button"
+//         aria-label="Tillbaka till föregående steg"
+//         onClick={() => onBack?.()}
+//       >
+//         <span aria-hidden="true">←</span>
+//       </button>
+
+//       {activity && (
+//         <p className="reflection-note__activity">{activity.activityName}</p>
+//       )}
+
+//       <div
+//         className="reflection-note__progress"
+//         role="progressbar"
+//         aria-label="Reflektionsflöde"
+//         aria-valuemin={0}
+//         aria-valuemax={totalSteps}
+//         aria-valuenow={currentStep}
+//         aria-valuetext={`Steg ${currentStep} av ${totalSteps}`}
+//       >
+//         {Array.from({ length: totalSteps }, (_, index) => (
+//           <span
+//             key={index}
+//             className={
+//               index < currentStep
+//                 ? "reflection-note__step reflection-note__step--active"
+//                 : "reflection-note__step"
+//             }
+//           />
+//         ))}
+//       </div>
+
+//       <h1 className="reflection-note__title">Vill du lägga till något?</h1>
+
+//       <p className="reflection-note__description">
+//         Skriv en tanke om din dag - vad hände, vad vill du komma ihåg?
+//       </p>
+
+//       <div className="reflection-note__field">
+//         <label htmlFor="reflection-note">Din anteckning (valfritt)</label>
+
+//         <div className="reflection-note__selection">
+//           {mood && (
+//             <span className="reflection-note__mood">
+//               <MoodFace mood={mood} size={24} />
+//               <span>{mood.label}</span>
+//             </span>
+//           )}
+
+//           {tags.map((tag) => (
+//             <span className="reflection-note__tag" key={tag}>
+//               {tag}
+//             </span>
+//           ))}
+//         </div>
+
+//         <textarea
+//           id="reflection-note"
+//           className="reflection-note__input"
+//           placeholder="T.ex. Sov dåligt men promenaden hjälpte"
+//           maxLength={250}
+//           value={note}
+//           onChange={(event) => setNote(event.target.value)}
+//         />
+
+//         <p className="reflection-note__count">{note.length}/250</p>
+//       </div>
+//       <div className="reflection-note__actions">
+//         <button
+//           className="reflection-note__continue"
+//           type="button"
+//           onClick={() => onContinue?.(note)}
+//         >
+//           Fortsätt
+//         </button>
+
+//         <button
+//           className="reflection-note__skip"
+//           type="button"
+//           onClick={() => onSkip?.()}
+//         >
+//           Hoppa över
+//         </button>
+//       </div>
+//     </main>
+//   );
+// }
+
+// export default ReflectionNotePage;
+import { Navigate, useNavigate } from "react-router-dom";
+import MoodFace from "../../moodComponents/MoodFace";
+import { useReflection } from "../../context/useReflection";
+import "./reflectionNotePage.css";
+
+const currentStep = 3;
+const totalSteps = 4;
+
+function ReflectionNotePage() {
+  const navigate = useNavigate();
+  const { mood, tags, note, setNote, activity } = useReflection();
+
+  // Öppnas sidan direkt utan valt mående, gå till första steget
+  if (!mood) return <Navigate to="/reflection/mood" replace />;
+
+  function skip() {
+    setNote("");
+    navigate("/reflection/summary");
+  }
+
   return (
     <main className="reflection-note">
       <button
         className="reflection-note__back"
         type="button"
         aria-label="Tillbaka till föregående steg"
-        onClick={() => onBack?.()}
+        onClick={() => navigate("/reflection/tags")}
       >
         <span aria-hidden="true">←</span>
       </button>
 
       {activity && (
-        <p className="reflection-note__activity">{activity.activityName}</p>
+        <p className="reflection-note__activity">{activity.name}</p>
       )}
 
       <div
@@ -53,19 +166,17 @@ function ReflectionNotePage({
       <h1 className="reflection-note__title">Vill du lägga till något?</h1>
 
       <p className="reflection-note__description">
-        Skriv en tanke om din dag - vad hände, vad vill du komma ihåg?
+        Skriv en tanke om din dag – vad hände, vad vill du komma ihåg?
       </p>
 
       <div className="reflection-note__field">
         <label htmlFor="reflection-note">Din anteckning (valfritt)</label>
 
         <div className="reflection-note__selection">
-          {mood && (
-            <span className="reflection-note__mood">
-              <MoodFace mood={mood} size={24} />
-              <span>{mood.label}</span>
-            </span>
-          )}
+          <span className="reflection-note__mood">
+            <MoodFace mood={mood} size={24} />
+            <span>{mood.label}</span>
+          </span>
 
           {tags.map((tag) => (
             <span className="reflection-note__tag" key={tag}>
@@ -85,11 +196,12 @@ function ReflectionNotePage({
 
         <p className="reflection-note__count">{note.length}/250</p>
       </div>
+
       <div className="reflection-note__actions">
         <button
           className="reflection-note__continue"
           type="button"
-          onClick={() => onContinue?.(note)}
+          onClick={() => navigate("/reflection/summary")}
         >
           Fortsätt
         </button>
@@ -97,7 +209,7 @@ function ReflectionNotePage({
         <button
           className="reflection-note__skip"
           type="button"
-          onClick={() => onSkip?.()}
+          onClick={skip}
         >
           Hoppa över
         </button>
