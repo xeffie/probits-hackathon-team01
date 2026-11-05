@@ -2,6 +2,21 @@ import { useState } from 'react';
 import MoodFace from '../../moodComponents/MoodFace';
 import './reflectionTagsPage.css';
 
+const tagGroups = [
+	{
+		title: 'Fysisk aktivitet',
+		tags: ['Rörelse i vardagen', 'Träning', 'Orkade inte röra mig'],
+	},
+	{
+		title: 'Matvanor',
+		tags: ['Regelbundna mattider', 'Socker', 'Tröstätande'],
+	},
+	{
+		title: 'Balans i livet',
+		tags: ['Återhämtning', 'Sömn', 'Stress', 'Psykiskt mående'],
+	},
+];
+
 function ReflectionTagsPage({
 	activity = null,
 	mood = null,
@@ -25,6 +40,20 @@ function ReflectionTagsPage({
 					<span>{mood.label}</span>
 				</div>
 			)}
+
+			{tagGroups.map((group) => (
+				<fieldset key={group.title}>
+					<legend>{group.title}</legend>
+
+					<div className='reflection-tags__choices'>
+						{group.tags.map((tag) => (
+							<button key={tag} type='button'>
+								{tag}
+							</button>
+						))}
+					</div>
+				</fieldset>
+			))}
 		</main>
 	);
 }
