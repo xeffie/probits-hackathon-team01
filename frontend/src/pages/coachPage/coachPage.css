@@ -307,3 +307,22 @@
 	color: var(--color-text-muted);
 	font-size: var(--font-size-sm);
 }
+
+.coach-page__button {
+	align-self: flex-start;
+	min-width: var(--touch-target);
+	min-height: var(--touch-target);
+	padding: var(--space-2);
+	border: 0;
+	border-radius: var(--radius-pill);
+	background: transparent;
+	color: var(--color-text);
+	font: inherit;
+	font-size: var(--font-size-lg);
+	cursor: pointer;
+}
+
+.coach-page__button:focus-visible {
+	outline: 2px solid var(--color-focus);
+	outline-offset: 2px;
+}
