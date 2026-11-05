@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { coachMessages } from '../../../reflectionData/coachMessages';
 import CoachFeedbackForm from './CoachFeedbackForm';
 import ParticipantOverview from './ParticipantOverview';
 import ParticipantChat from './ParticipantChat.jsx.jsx';
@@ -48,7 +49,10 @@ export default function ParticipantDetails({
 			)}
 
 			{activeTab === 'chat' && (
-				<ParticipantChat participantName={participant.name} />
+				<ParticipantChat
+					participantId={participant.id}
+					participantName={participant.name}
+				/>
 			)}
 			{activeTab === 'planning' && <p>Här kommer nästa veckas planering.</p>}
 		</main>

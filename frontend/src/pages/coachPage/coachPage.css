@@ -188,3 +188,47 @@
 	outline: 2px solid var(--color-focus);
 	outline-offset: 2px;
 }
+
+.coach-page__chat {
+	padding: var(--space-4);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+	background: var(--color-surface);
+}
+
+.coach-page__messages {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+}
+
+.coach-page__message {
+	max-width: 85%;
+	padding: var(--space-3);
+	border-radius: var(--radius-md);
+	overflow-wrap: anywhere;
+}
+
+.coach-page__message--coach {
+	align-self: flex-end;
+	background: var(--brand-purple-light);
+}
+
+.coach-page__message--participant {
+	align-self: flex-start;
+	background: var(--color-bg);
+}
+
+.coach-page__message > span {
+	display: block;
+	margin-top: var(--space-1);
+	color: var(--color-text-muted);
+	font-size: var(--font-size-xs);
+	text-align: right;
+}
