@@ -14,7 +14,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/coach-feedback")
-@CrossOrigin(origins = "http://localhost:5173")
 @RequiredArgsConstructor
 public class CoachFeedbackController {
 
