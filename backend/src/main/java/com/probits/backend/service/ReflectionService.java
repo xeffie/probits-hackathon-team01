@@ -32,16 +32,13 @@ public class ReflectionService {
                     "Activity not found"
             );
         }
-
         Reflection reflection = new Reflection();
-
         reflection.setActivityId(request.getActivityId());
         reflection.setMood(request.getMood());
         reflection.setTags(request.getTags());
         reflection.setNote(request.getNote());
-
+        reflection.setShared(request.isShared());
         return reflectionRepository.save(reflection);
-
     }
 
     public List<Reflection> getReflectionsByDate(LocalDate date) {
