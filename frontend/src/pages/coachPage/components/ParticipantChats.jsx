@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { coachMessages } from '../../../reflectionData/coachMessages';
-import CoachFeedbackForm from './CoachFeedbackForm';
-import ParticipantOverview from './ParticipantOverview';
-import ParticipantChat from './ParticipantChat.jsx.jsx';
+import ParticipantPlanning from './ParticipantPlanning.jsx';
+import CoachFeedbackForm from './CoachFeedbackForm.jsx';
+import ParticipantOverview from './ParticipantOverview.jsx';
+import ParticipantChat from './ParticipantChats.jsx';
 
 export default function ParticipantDetails({
 	participant,
@@ -54,7 +54,12 @@ export default function ParticipantDetails({
 					participantName={participant.name}
 				/>
 			)}
-			{activeTab === 'planning' && <p>Här kommer nästa veckas planering.</p>}
+			{activeTab === 'planning' && (
+				<ParticipantPlanning
+					participantId={participant.id}
+					participantName={participant.name}
+				/>
+			)}
 		</main>
 	);
 }
