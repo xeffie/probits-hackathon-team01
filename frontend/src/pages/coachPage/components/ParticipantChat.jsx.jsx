@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import { coachMessages } from '../../../reflectionData/coachMessages';
 
 export default function ParticipantChat({ participantId, participantName }) {
-	const messages = coachMessages.filter(
-		(message) => message.participantId === participantId,
+	const [draft, setDraft] = useState('');
+
+	const [messages, setMessages] = useState(() =>
+		coachMessages.filter((message) => message.participantId === participantId),
 	);
 
 	return (
@@ -22,6 +25,47 @@ export default function ParticipantChat({ participantId, participantName }) {
 			</ul>
 
 			{messages.length === 0 && <p>Inga meddelanden ännu.</p>}
+
+			<form
+				className='coach-page__chat-form'
+				onSubmit={(event) => {
+					event.preventDefault();
+
+					const text = draft.trim();
+					if (!text) return;
+
+					const now = new Date();
+
+					setMessages((previousMessages) => [
+						...previousMessages,
+						{
+							id: crypto.randomUUID(),
+							participantId,
+							sender: 'coach',
+							text,
+							time: now.toLocaleTimeString('sv-SE', {
+								hour: '2-digit',
+								minute: '2-digit',
+							}),
+						},
+					]);
+
+					setDraft('');
+				}}>
+				<label htmlFor='coach-chat-message'>Meddelande</label>
+
+				<input
+					id='coach-chat-message'
+					type='text'
+					placeholder='Skriv ett meddelande'
+					value={draft}
+					onChange={(event) => setDraft(event.target.value)}
+				/>
+
+				<button type='submit' disabled={!draft.trim()}>
+					Skicka
+				</button>
+			</form>
 		</section>
 	);
 }
