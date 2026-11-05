@@ -10,12 +10,14 @@ import "../reflectionMoodPage/reflectionMoodPage.css";
 import CoachNotice from "../../summaryComponents/CoachNotice";
 import ShareToggleCard from "../../summaryComponents/ShareToggleCard";
 import { useState } from "react";
+import ConfirmationPopup from "../../summaryComponents/ConfirmationPopup";
 
 export default function ReflectionSummaryPage() {
   const { moodId, tags, note, activity, dateLabel } = mockReflection;
   const mood = getMoodById(moodId);
 
   const [shareEnabled, setShareEnabled] = useState(false);
+  const [showConfirmation, setShowConfirmation] = useState(false);
 
   return (
     <section
@@ -46,7 +48,7 @@ export default function ReflectionSummaryPage() {
       </div>
 
       <div className="step-actions">
-        <button type="button" className="btn-primary">
+        <button type="button" className="btn-primary" onClick={() => setShowConfirmation(true)}>
           Spara reflektion
         </button>
         <button
@@ -57,6 +59,17 @@ export default function ReflectionSummaryPage() {
           Tillbaka
         </button>
       </div>
+
+      <ConfirmationPopup
+        open={showConfirmation}
+        mood={mood}
+        coach={mockCoach}
+        sharedWith={shareEnabled ? mockGroup.name : null}
+        onClose={() => {
+            setShowConfirmation(false)
+            // Navigera till Home page 
+        }}
+      />
     </section>
   );
 }
