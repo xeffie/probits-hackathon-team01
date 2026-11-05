@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import MoodScale from "../../moodComponents/MoodScale";
 import "./reflectionMoodPage.css";
 
 export default function ReflectionMoodPage() {
   const [mood, setMood] = useState(null);
+  const navigate = useNavigate();
 
   return (
     <section className="step-page" aria-labelledby="mood-heading">
@@ -17,7 +19,12 @@ export default function ReflectionMoodPage() {
       </div>
 
       <div className="step-actions">
-        <button type="button" className="btn-primary" disabled={!mood}>
+        <button
+          type="button"
+          className="btn-primary"
+          disabled={!mood}
+          onClick={() => navigate("/reflection-note")}
+        >
           Fortsätt
         </button>
         <button type="button" className="btn-text">

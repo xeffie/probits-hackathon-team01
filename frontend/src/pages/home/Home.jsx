@@ -77,7 +77,7 @@ export const Home = () => {
             </section>
           </section>
 
-          <a className="home__button-reflect" href="/reflect">
+          <a className="home__button-reflect" href="/reflection-mood">
             Reflektera
           </a>
         </section>
