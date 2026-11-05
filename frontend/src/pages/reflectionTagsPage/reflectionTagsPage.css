@@ -1,0 +1,5 @@
+.reflection-tags__choices button[aria-pressed='true'] {
+	background: var(--brand-purple-light);
+	border-color: var(--color-primary);
+	color: var(--color-primary);
+}

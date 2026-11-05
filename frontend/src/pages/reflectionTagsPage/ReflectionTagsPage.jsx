@@ -29,6 +29,14 @@ function ReflectionTagsPage({
 }) {
 	const [selectedTags, setSelectedTags] = useState(initialTags);
 
+	function toggleTag(tag) {
+		setSelectedTags((previousTags) =>
+			previousTags.includes(tag)
+				? previousTags.filter((selectedTag) => selectedTag !== tag)
+				: [...previousTags, tag],
+		);
+	}
+
 	return (
 		<main className='reflection-tgs'>
 			<h1>Vad påverkar ditt mående?</h1>
@@ -47,7 +55,11 @@ function ReflectionTagsPage({
 
 					<div className='reflection-tags__choices'>
 						{group.tags.map((tag) => (
-							<button key={tag} type='button'>
+							<button
+								key={tag}
+								type='button'
+								aria-pressed={selectedTags.includes(tag)}
+								onClick={() => toggleTag(tag)}>
 								{tag}
 							</button>
 						))}
