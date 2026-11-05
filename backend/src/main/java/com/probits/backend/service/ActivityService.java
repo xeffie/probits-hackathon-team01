@@ -26,9 +26,11 @@ public class ActivityService {
         Activity activity = new Activity();
 
         activity.setActivityName(request.getActivityName());
+        activity.setDurationMinutes(request.getDurationMinutes());
+        activity.setScheduledAt(request.getScheduledAt());
+        activity.setType(request.getType());
 
         return activityRepository.save(activity);
-
     }
 
     public Activity getActivityById(Long id) {

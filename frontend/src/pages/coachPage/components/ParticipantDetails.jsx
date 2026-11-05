@@ -2,7 +2,7 @@ import { useState } from 'react';
 import ParticipantPlanning from './ParticipantPlanning.jsx';
 import CoachFeedbackForm from './CoachFeedbackForm.jsx';
 import ParticipantOverview from './ParticipantOverview.jsx';
-import ParticipantChat from './ParticipantChats.jsx';
+import ParticipantChat from './ParticipantChat.jsx';
 
 export default function ParticipantDetails({
 	participant,

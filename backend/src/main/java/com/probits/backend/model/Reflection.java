@@ -42,4 +42,6 @@ public class Reflection {
         createdAt = LocalDateTime.now();
     }
 
+    private boolean shared;
+
 }

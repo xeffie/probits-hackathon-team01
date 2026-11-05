@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -14,5 +15,12 @@ public class CreateActivityRequest {
 
     @NotBlank
     private String activityName;
+
+    @Min(1)
+    private Integer durationMinutes;
+
+    private LocalDateTime scheduledAt;
+
+    private String type;
 
 }

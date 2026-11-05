@@ -1,6 +1,7 @@
 package com.probits.backend.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,6 +28,13 @@ public class Activity {
     public void onCreate() {
         createdAt = LocalDateTime.now();
     }
+
+    @Min(1)
+    private Integer durationMinutes;
+
+    private LocalDateTime scheduledAt;
+
+    private String type;
 
 
 }
