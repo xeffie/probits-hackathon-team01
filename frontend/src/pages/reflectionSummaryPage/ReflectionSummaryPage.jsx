@@ -77,6 +77,7 @@
 
 import { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
+import { api } from "../../api/api";
 import { mockCoach, mockGroup } from "../../reflectionData/mockReflection";
 import { useReflection } from "../../context/useReflection";
 import SummaryCard from "../../summaryComponents/SummaryCard";
@@ -94,6 +95,8 @@ export default function ReflectionSummaryPage() {
 
   const [shareEnabled, setShareEnabled] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState(null);
 
   // Öppnas sidan direkt utan valt mående, gå till första steget
   if (!mood) return <Navigate to="/reflection/mood" replace />;
@@ -104,18 +107,31 @@ export default function ReflectionSummaryPage() {
     month: "short",
   });
 
-  const handleSave = () => {
+  const handleSave = async () => {
+    if (saving) return;
+
+    setSaving(true);
+    setError(null);
+
     const reflection = {
-      moodId: mood.id,
-      tags,
-      note,
       activityId: activity?.id ?? null,
-      coachId: mockCoach.id,
-      sentToCoach: true,
-      share: shareEnabled ? { groupId: mockGroup.id } : null,
+      mood: mood.id,
+      tags: tags,
+      note: note,
+      shared: shareEnabled,
     };
-    console.log("Sparar reflektion:", reflection); // byts mot API-anrop
-    setShowConfirmation(true);
+
+    try {
+      const savedReflection = await api.createReflection(reflection);
+
+      console.log("Reflection saved:", savedReflection);
+      setShowConfirmation(true);
+    } catch (err) {
+      console.error("Failed to save reflection:", err);
+      setError("Kunde inte spara reflektionen. Försök igen.");
+    } finally {
+      setSaving(false);
+    }
   };
 
   const handleDone = () => {
@@ -150,8 +166,15 @@ export default function ReflectionSummaryPage() {
       </div>
 
       <div className="step-actions">
-        <button type="button" className="btn-primary" onClick={handleSave}>
-          Spara reflektion
+        {error && <p role="alert">{error}</p>}
+
+        <button
+            type="button"
+            className="btn-primary"
+            onClick={handleSave}
+            disabled={saving}
+        >
+          {saving ? "Sparar..." : "Spara reflektion"}
         </button>
         <button type="button" className="btn-text" onClick={() => navigate("/reflection/note")}>
           Tillbaka

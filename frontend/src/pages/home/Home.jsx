@@ -1,6 +1,7 @@
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useReflection } from "../../context/useReflection";
-import { activities } from "../../reflectionData/activities";
+import { api } from "../../api/api";
 import { getMoodById } from "../../reflectionData/moods";
 import MoodFace from "../../moodComponents/MoodFace";
 import "./home.css";
@@ -12,6 +13,80 @@ const weekdays = ["M", "T", "O", "T", "F", "L", "S"];
 export const Home = () => {
   const navigate = useNavigate();
   const { reset, setActivity } = useReflection();
+
+    const [activities, setActivities] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const [coachFeedback, setCoachFeedback] = useState(null);
+
+    useEffect(() => {
+        let active = true;
+
+        const loadActivities = async () => {
+            try {
+                const data = await api.getActivities();
+
+                const formattedActivities = data.map((activity) => ({
+                    id: activity.id,
+                    name: activity.activityName,
+                    duration: activity.durationMinutes != null
+                        ? `${activity.durationMinutes} min`
+                        : "",
+                    date: activity.scheduledAt
+                        ? new Date(activity.scheduledAt).toLocaleDateString("sv-SE", {
+                            day: "numeric",
+                            month: "short",
+                        })
+                        : "",
+                    time: activity.scheduledAt
+                        ? new Date(activity.scheduledAt).toLocaleTimeString("sv-SE", {
+                            hour: "2-digit",
+                            minute: "2-digit",
+                        })
+                        : "",
+                    area:
+                        activity.type === "EXERCISE" || activity.type === "WALK"
+                            ? "training"
+                            : "other",
+                    moodId: null,
+                }));
+
+                if (active) setActivities(formattedActivities);
+            } catch (err) {
+                console.error("Failed to fetch activities:", err);
+                if (active) setError("Kunde inte hämta aktiviteter.");
+            } finally {
+                if (active) setLoading(false);
+            }
+        };
+
+        loadActivities();
+
+        return () => {
+            active = false;
+        };
+    }, []);
+
+    useEffect(() => {
+        const loadCoachFeedback = async () => {
+            try {
+                const feedbackList = await api.getCoachFeedback();
+
+                if (feedbackList.length > 0) {
+                    const latestFeedback = [...feedbackList].sort(
+                        (a, b) =>
+                            new Date(b.createdAt) - new Date(a.createdAt)
+                    )[0];
+
+                    setCoachFeedback(latestFeedback);
+                }
+            } catch (err) {
+                console.error("Failed to fetch coach feedback:", err);
+            }
+        };
+
+        loadCoachFeedback();
+    }, []);
 
   const startDailyReflection = () => {
     reset();
@@ -62,7 +137,34 @@ export const Home = () => {
         </section>
       </section>
 
+        {coachFeedback && (
+            <section className="home__container">
+                <h2 className="home__subtitle">
+                    Feedback från {coachFeedback.coachName}
+                </h2>
+
+                <p className="home__description">
+                    {coachFeedback.message}
+                </p>
+
+                {coachFeedback.nextWeekGoal && (
+                    <>
+                        <h3 className="home__subsubtitle">
+                            Fokus nästa vecka
+                        </h3>
+
+                        <p className="home__description">
+                            {coachFeedback.nextWeekGoal}
+                        </p>
+                    </>
+                )}
+            </section>
+        )}
+
       <h2 className="home__subtitle">Senaste aktiviteter</h2>
+
+        {loading && <p>Hämtar aktiviteter...</p>}
+        {error && <p role="alert">{error}</p>}
 
       {activities.map((activity) => {
         const mood = getMoodById(activity.moodId);
@@ -74,7 +176,9 @@ export const Home = () => {
               <section>
                 <h3 className="home__subsubtitle">{activity.name}</h3>
                 <p className="home__description">
-                  {activity.duration} · {activity.date} · {activity.time}
+                    {[activity.duration, activity.date, activity.time]
+                        .filter(Boolean)
+                        .join(" · ")}
                 </p>
               </section>
             </section>
