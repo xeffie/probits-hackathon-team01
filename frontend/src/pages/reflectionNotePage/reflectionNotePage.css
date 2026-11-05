@@ -1,15 +1,16 @@
 .reflection-note {
-	display: flex;
-	flex-direction: column;
-	gap: var(--space-4);
-	width: 100%;
-	max-width: var(--app-max-width);
-	min-height: 100dvh;
-	margin-inline: auto;
-	padding: var(--space-5) var(--space-4);
-	background-color: var(--color-bg);
-	color: var(--color-text);
-	font-family: var(--font-family);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: var(--app-max-width);
+  min-height: 100dvh;
+  margin-inline: auto;
+  padding: var(--space-5) var(--space-4);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  padding-bottom: 7rem;
 }
 
 .reflection-note__title {
