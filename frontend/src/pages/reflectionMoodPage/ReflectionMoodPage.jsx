@@ -2,7 +2,7 @@ import { useState } from "react";
 import MoodScale from "../../moodComponents/MoodScale";
 import "./reflectionMoodPage.css";
 
-export default function ReflectionMoodPage() {
+export default function ReflectionMoodPage({ onContinue }) {
   const [mood, setMood] = useState(null);
 
   return (
@@ -17,7 +17,12 @@ export default function ReflectionMoodPage() {
       </div>
 
       <div className="step-actions">
-        <button type="button" className="btn-primary" disabled={!mood}>
+        <button
+          type="button"
+          className="btn-primary"
+          disabled={!mood}
+          onClick={() => onContinue?.(mood)}
+        >
           Fortsätt
         </button>
         <button type="button" className="btn-text">

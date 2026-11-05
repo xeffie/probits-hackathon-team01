@@ -42,6 +42,7 @@
   color: var(--color-on-primary);
   font: inherit;
   font-weight: var(--font-weight-medium);
+  cursor: pointer;
 }
 
 .btn-primary:disabled {

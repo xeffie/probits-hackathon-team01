@@ -2,7 +2,7 @@
 import logo from "../../public/img/logo2.png";
 import "./home.css";
 
-export const Home = () => {
+export const Home = ({ onContinue }) => {
   return (
     <>
       <section className="home">
@@ -77,9 +77,9 @@ export const Home = () => {
             </section>
           </section>
 
-          <a className="home__button-reflect" href="/reflect">
+          <button className="home__button-reflect" onClick={onContinue}>
             Reflektera
-          </a>
+          </button>
         </section>
         <section className="home__container home__flexbeside">
           <section className="home__flexbeside">
