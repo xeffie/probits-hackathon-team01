@@ -1,0 +1,44 @@
+.mood-scale { text-align: center; }
+
+.mood-label {
+  min-height: 1.5em;
+  margin-bottom: var(--space-4);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-muted);
+}
+.mood-label.is-selected { color: var(--color-text); }
+
+.mood-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.mood-option {
+  display: grid;
+  place-items: center;
+  width: clamp(var(--touch-target), 16vw, 64px);
+  aspect-ratio: 1;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-full);
+  background: none;
+  cursor: pointer;
+  transform: scale(0.9);
+  transition: transform 150ms ease, opacity 150ms ease;
+  -webkit-tap-highlight-color: transparent; /* ingen blå fyrkant vid tryck */
+  user-select: none; 
+}
+.mood-option svg { width: 100%; height: auto; }
+
+.mood-option.is-selected {
+  transform: scale(1.05);
+  box-shadow: 0 0 0 4px var(--color-bg), 0 0 0 7px var(--brand-purple);
+}
+.mood-option.is-muted { opacity: 0.5; }
+
+.mood-option:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 4px;
+}
