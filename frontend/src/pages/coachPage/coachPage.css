@@ -1,0 +1,112 @@
+.coach-page {
+	width: 100%;
+	max-width: var(--app-max-width);
+	min-height: 100dvh;
+	margin: 0 auto;
+	padding: var(--space-4);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-4);
+	background: var(--color-bg);
+	color: var(--color-text);
+	font-family: var(--font-family);
+}
+
+.coach-page__participants {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-2);
+}
+
+.coach-page__participant {
+	width: 100%;
+	min-height: var(--touch-target);
+	padding: var(--space-3);
+	display: flex;
+	align-items: center;
+	gap: var(--space-3);
+	border: 0;
+	border-radius: var(--radius-md);
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	text-align: left;
+	cursor: pointer;
+}
+
+.coach-page__participant:focus-visible {
+	outline: 2px solid var(--color-focus);
+	outline-offset: 2px;
+}
+
+.coach-page__avatar {
+	width: var(--touch-target);
+	height: var(--touch-target);
+	flex-shrink: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: var(--radius-full);
+	background: var(--brand-purple-light);
+	color: var(--color-primary);
+	font-weight: var(--font-weight-bold);
+}
+
+.coach-page__participant-info {
+	flex: 1;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-1);
+}
+
+.coach-page__participant-info > span {
+	color: var(--color-text-muted);
+	font-size: var(--font-size-sm);
+}
+
+.coach-page__participant-mood {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: var(--space-1);
+}
+
+.coach-page__mood-label {
+	font-size: var(--font-size-xs);
+	color: var(--color-text-muted);
+}
+
+.coach-page__participants-card {
+	padding: var(--space-4);
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-3);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-md);
+	background: var(--color-surface);
+}
+
+.coach-page__participants-card > p {
+	color: var(--color-text-muted);
+	font-size: var(--font-size-sm);
+}
+
+.coach-page__search {
+	width: 100%;
+	min-height: var(--touch-target);
+	padding: var(--space-2) var(--space-3);
+	border: 1px solid var(--color-border);
+	border-radius: var(--radius-sm);
+	background: var(--color-surface);
+	color: var(--color-text);
+	font: inherit;
+}
+
+.coach-page__search:focus-visible {
+	outline: 2px solid var(--color-focus);
+	outline-offset: 2px;
+}

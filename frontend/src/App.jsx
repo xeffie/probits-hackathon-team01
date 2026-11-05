@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import ReflectionTagsPage from './pages/reflectionTagsPage/ReflectionTagsPage';
-import ReflectionNotePage from './pages/reflectionNotePage/ReflectionNotePage';
+//import ReflectionTagsPage from './pages/reflectionTagsPage/ReflectionTagsPage';
+//import ReflectionNotePage from './pages/reflectionNotePage/ReflectionNotePage';
+import CoachPage from './pages/coachPage/CoachPage';
 import { getMoodById } from './reflectionData/moods';
 
 function App() {
@@ -15,34 +16,7 @@ function App() {
 
 	return (
 		<>
-			{step === 'tags' && (
-				<ReflectionTagsPage
-					activity={activity}
-					mood={mood}
-					initialPage={tags}
-					onContinue={(selectedTags) => {
-						setTags(selectedTags);
-						setStep('note');
-					}}
-					onSkip={() => {
-						setTags([]);
-						setStep('note');
-					}}
-					onBack={() => console.log('Tillbaka till mående')}
-				/>
-			)}
-
-			{step === 'note' && (
-				<ReflectionNotePage
-					activity={activity}
-					mood={mood}
-					tags={tags}
-					onBack={() => setStep('tags')}
-					onContinue={(note) => console.log('Anteckning', note)}
-					onSkip={() =>
-						console.log('Hoppa över anteckning')
-					}></ReflectionNotePage>
-			)}
+			<CoachPage></CoachPage>
 		</>
 	);
 }
