@@ -17,7 +17,7 @@ export default function ShareToggleCard({ enabled, onToggle, group }) {
           <span />
         </button>
       </div>
-      <p className="muted">Få pepp och stöd från {group.name}.</p>
+      <p className="muted">Få pepp och stöd från din grupp: {group.name}</p>
     </section>
     );
 }

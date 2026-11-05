@@ -6,7 +6,7 @@ export const mockReflection = {
   moodId: 4,
   tags: ["Sömn", "Rörelse i vardagen"],
   note: "Sov bra och tog en promenad på lunchen.",
-  activity: { id: 101, name: "Promenad", duration: "30 min", date: "Idag", time: "07:45" },
+  activity: null, // testa även: { id: 101, name: "Promenad", duration: "30 min", date: "Idag", time: "07:45" }
   dateLabel: "Tor 5 nov",
 };
 

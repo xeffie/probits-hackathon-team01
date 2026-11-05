@@ -2,7 +2,6 @@
   padding: var(--space-4);
   border-radius: var(--radius-md);
   background: var(--color-surface);
-  margin-bottom: var(--space-5);
 }
 
 .share-head {
