@@ -1,8 +1,9 @@
-import { mockReflection } from "../../reflectionData/mockReflection";
+import { mockCoach, mockReflection } from "../../reflectionData/mockReflection";
 import { getMoodById } from "../../reflectionData/moods";
 import SummaryCard from "../../summaryComponents/SummaryCard";
 import "./reflectionSummaryPage.css";
 import "../reflectionMoodPage/reflectionMoodPage.css";
+import CoachNotice from "../../summaryComponents/CoachNotice";
 
 
 export default function ReflectionSummaryPage() {
@@ -26,6 +27,8 @@ export default function ReflectionSummaryPage() {
           onEdit={(step) => console.log("Gå till steg", step)}
         />
       </div>
+
+      <CoachNotice coach={mockCoach} />
 
       <div className="step-actions">
         <button type="button" className="btn-primary">
