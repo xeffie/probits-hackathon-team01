@@ -1,15 +1,13 @@
+import ParticipantDetails from './components/ParticipantDetails';
 import ParticipantsList from './components/ParticipantsList';
 import { coachReflections } from '../../reflectionData/coachReflections';
 import { useState } from 'react';
-import MoodFace from '../../moodComponents/MoodFace';
-import { getMoodById } from '../../reflectionData/moods';
 import { participants } from '../../reflectionData/participants';
 import './coachPage.css';
 
 export default function CoachPage() {
 	const [search, setSearch] = useState('');
 	const [selectedParticipant, setSelectedParticipant] = useState(null);
-	const [activeTab, setActiveTab] = useState('overview');
 
 	const filteredParticipants = participants.filter((participant) =>
 		participant.name.toLowerCase().includes(search.trim().toLowerCase()),
@@ -20,71 +18,11 @@ export default function CoachPage() {
 			(reflection) => reflection.participantId === selectedParticipant.id,
 		);
 		return (
-			<main className='coach-page'>
-				<button type='button' onClick={() => setSelectedParticipant(null)}>
-					← Deltagare
-				</button>
-
-				<h1>{selectedParticipant.name}</h1>
-				<p>
-					<nav
-						className='coach-page__tabs'
-						aria-label='Deltagarens information'>
-						<button
-							type='button'
-							aria-pressed={activeTab === 'overview'}
-							onClick={() => setActiveTab('overview')}>
-							Översikt
-						</button>
-
-						<button
-							type='button'
-							aria-pressed={activeTab === 'chat'}
-							onClick={() => setActiveTab('chat')}>
-							Chatt
-						</button>
-
-						<button
-							type='button'
-							aria-pressed={activeTab === 'planning'}
-							onClick={() => setActiveTab('planning')}>
-							Nästa vecka
-						</button>
-					</nav>
-
-					{activeTab === 'overview' && (
-						<section aira-labelledby='reflections-heading'>
-							<h2 id='reflections-heading'>Veckans reflektioner</h2>
-							<p>Exempeldata för deltagare</p>
-
-							{participantReflections.length === 0 ? (
-								<p>Inga reflektioner att visa.</p>
-							) : (
-								participantReflections.map((reflection) => (
-									<article
-										className='coach-page__reflection'
-										key={reflection.id}>
-										<h3>{reflection.activityName}</h3>
-										<p>{reflection.date}</p>
-
-										<div className='coach-page__reflection-mood'>
-											<MoodFace mood={getMoodById(reflection.mood)} size={28} />
-											<span>{getMoodById(reflection.mood).label}</span>
-										</div>
-										<p>{reflection.tags.join(' · ')}</p>
-										<p>{reflection.note}</p>
-									</article>
-								))
-							)}
-						</section>
-					)}
-
-					{activeTab === 'chat' && <p>Här kommer chatten.</p>}
-					{activeTab === 'planning' && (
-						<p>Här kommer nästa veckas planering.</p>
-					)}
-				</p>
-			</main>
+			<ParticipantDetails
+				participant={selectedParticipant}
+				reflections={participantReflections}
+				onBack={() => setSelectedParticipant(null)}
+			/>
 		);
 	}
 
@@ -101,7 +39,6 @@ export default function CoachPage() {
 				onSearchChange={setSearch}
 				onSelect={(participant) => {
 					setSelectedParticipant(participant);
-					setActiveTab('overview');
 				}}
 			/>
 		</main>
