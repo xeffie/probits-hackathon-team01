@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import MoodFace from '../../moodComponents/MoodFace';
 import './reflectionNotePage.css';
 
 function ReflectionNotePage({
@@ -24,9 +25,7 @@ function ReflectionNotePage({
 			</button>
 
 			{activity && (
-				<p className='reflection-note__activity'>
-					{activity.name} · {activity.duration} min · {activity.timeLabel}
-				</p>
+				<p className='reflection-note__activity'>{activity.activityName}</p>
 			)}
 
 			<div
@@ -61,7 +60,7 @@ function ReflectionNotePage({
 				<div className='reflection-note__selection'>
 					{mood && (
 						<span className='reflection-note__mood'>
-							<span aria-hidden='true'>{mood.emoji}</span>
+							<MoodFace mood={mood} size={24} />
 							<span>{mood.label}</span>
 						</span>
 					)}
@@ -76,7 +75,7 @@ function ReflectionNotePage({
 				<textarea
 					id='reflection-note'
 					className='reflection-note__input'
-					placeholder='T.ex. Sov dåligt men prommenaden hjälpte'
+					placeholder='T.ex. Sov dåligt men promenaden hjälpte'
 					maxLength={250}
 					value={note}
 					onChange={(event) => setNote(event.target.value)}
