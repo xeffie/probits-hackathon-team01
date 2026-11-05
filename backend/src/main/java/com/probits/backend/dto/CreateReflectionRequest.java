@@ -26,4 +26,6 @@ public class CreateReflectionRequest {
 
     @Size(max = 250)
     private String note;
+
+    private boolean shared;
 }
