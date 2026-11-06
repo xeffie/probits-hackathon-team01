@@ -232,10 +232,22 @@ Under projektets gång diskuterades flera möjliga vidareutvecklingar:
 
 <div align="center">
 
-### 💚 Byggt under PROBits Hackathon 2026
+  <h3>💚 Byggt under PROBits Hackathon 2026</h3>
 
-*Vi tror att hållbara vanor börjar med små steg*
+  <p><i>Vi tror att hållbara vanor börjar med små steg.</i></p>
 
-**Team 01**
+
+ <h3 align="center">~ Team 01 ~</h3>
+
+<p align="center">
+  <sub>
+    <i>
+      <a href="https://github.com/xeffie">Josefin Vingeskog</a> ·
+      <a href="https://github.com/pjstrid">Jonathan Strid</a> ·
+      <a href="https://github.com/ler98">Lisa Eriksson</a> ·
+      <a href="https://github.com/AngelaRaven84">Sara Berg</a>
+    </i>
+  </sub>
+</p>
 
 </div>
