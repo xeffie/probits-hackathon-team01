@@ -224,7 +224,7 @@ Under projektets gång diskuterades flera möjliga vidareutvecklingar:
 
 <div align="center">
 
-### 💚 Byggt under ProBITS Hackathon 2026
+### 💚 Byggt under PROBits Hackathon 2026
 
 *Vi tror att hållbara vanor börjar med små steg*
 
