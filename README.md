@@ -18,9 +18,17 @@ En mobilanpassad webbapplikation som hjälper användare att reflektera över si
 ![Render](https://img.shields.io/badge/Render-Deploy-000000?style=flat-square&logo=render&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-Collaboration-181717?style=flat-square&logo=github&logoColor=white)
 
-
-
 **48 timmar · 4 utvecklare**
+
+<p align="center">
+  <a href="https://probits-frontend.onrender.com" target="_blank" rel="noopener noreferrer">
+    🚀 <b>Testa Live Demo</b>
+  </a>
+</p>
+
+<p align="center">
+  <sub><i>💡 Observera att det kan ta 1–2 minuter innan applikationen har läst in all data, eftersom backend kan behöva vakna efter en period av inaktivitet.</i></sub>
+</p>
 
 <img width="1800" height="900" alt="download" src="https://github.com/user-attachments/assets/54a01cf1-dd01-437c-bae2-3ae7d0b72691" />
 
