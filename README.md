@@ -196,7 +196,7 @@ npm install
 npm run dev
 ```
 
-Öppna adressen som Vite visar i terminalen. Frontend måste vara konfigurerad att anropa rätt backend-URL.
+Öppna adressen som Vite visar i terminalen. 
 
 ---
 
