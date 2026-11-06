@@ -1,6 +1,10 @@
 .home {
-  margin: 1rem;
-  padding-bottom: 7rem;
+  max-width: var(--app-max-width);
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: var(--space-4);
+  padding-bottom: calc(7rem + var(--safe-bottom));
+  background: var(--color-bg);
 }
 
 .home__logo {

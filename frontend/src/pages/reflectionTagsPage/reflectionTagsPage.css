@@ -25,7 +25,7 @@
   min-width: 0;
   margin: 0;
   padding: var(--space-4);
-  border: 0;
+  border: 1 solid;
   border-radius: var(--radius-md);
   background: var(--color-surface);
 }
@@ -107,17 +107,18 @@
 }
 
 .reflection-tags__back {
-  align-self: flex-start;
-  min-width: var(--touch-target);
-  min-height: var(--touch-target);
-  padding: var(--space-2);
-  border: 0;
-  border-radius: var(--radius-pill);
-  background: transparent;
-  color: var(--color-text);
-  font: inherit;
-  font-size: var(--font-size-lg);
-  cursor: pointer;
+  display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	align-self: flex-start;
+	width: var(--touch-target);
+	height: var(--touch-target);
+	border: none;
+	border-radius: var(--radius-full);
+	background-color: transparent;
+	color: var(--color-text);
+	font-size: var(--font-size-xl);
+	cursor: pointer;
 }
 
 .reflection-tags__activity {

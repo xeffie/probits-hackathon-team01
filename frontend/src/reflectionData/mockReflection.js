@@ -10,5 +10,5 @@ export const mockReflection = {
   dateLabel: "Tor 5 nov",
 };
 
-export const mockCoach = { id: 1, name: "Berit", initials: "BK" };
+export const mockCoach = { id: 1, name: "Berit", initials: "B" };
 export const mockGroup = { id: 1, name: "Morgonpromenaderna", memberCount: 6 };
