@@ -30,9 +30,9 @@ En mobilanpassad webbapplikation som hjälper användare att reflektera över si
 
 ## 🌿 Om projektet
 
-**Hur skapar vi vanor som faktiskt håller över tid?**
+_**Hur skapar vi vanor som faktiskt håller över tid?**_
 
-Under ProBITS Hackathon utforskade vi hur digitala verktyg kan stötta människor i att utveckla och bibehålla hälsosamma vanor. Vi valde att fokusera på **reflektion som en viktig del av beteendeförändring**.
+Under PROBits Hackathon utforskade vi hur digitala verktyg kan stötta människor i att utveckla och bibehålla hälsosamma vanor. Vi valde att fokusera på **reflektion som en viktig del av beteendeförändring**.
 
 Att genomföra en aktivitet är ett steg framåt, men att också reflektera över hur den påverkade oss kan bidra till större självinsikt och motivation över tid.
 
